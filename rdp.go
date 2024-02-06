@@ -13,13 +13,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/protocol/nla"
-	"github.com/SkillfulCarving/rdp/protocol/pdu"
-	"github.com/SkillfulCarving/rdp/protocol/sec"
-	"github.com/SkillfulCarving/rdp/protocol/t125"
-	"github.com/SkillfulCarving/rdp/protocol/tpkt"
-	"github.com/SkillfulCarving/rdp/protocol/x224"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/protocol/nla"
+	"github.com/SkillfulCarving/go-rdp/protocol/pdu"
+	"github.com/SkillfulCarving/go-rdp/protocol/sec"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125"
+	"github.com/SkillfulCarving/go-rdp/protocol/tpkt"
+	"github.com/SkillfulCarving/go-rdp/protocol/x224"
 )
 
 const (

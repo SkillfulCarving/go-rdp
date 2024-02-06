@@ -7,11 +7,11 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/emission"
-	"github.com/SkillfulCarving/rdp/protocol/t125/ber"
-	"github.com/SkillfulCarving/rdp/protocol/t125/gcc"
-	"github.com/SkillfulCarving/rdp/protocol/t125/per"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/emission"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/ber"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/gcc"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/per"
 )
 
 // take idea from https://github.com/Madnikulin50/gordp

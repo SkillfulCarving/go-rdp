@@ -7,7 +7,7 @@ import (
 	"image/color"
 	"io"
 
-	"github.com/SkillfulCarving/rdp/core"
+	"github.com/SkillfulCarving/go-rdp/core"
 	"github.com/lunixbochs/struc"
 )
 

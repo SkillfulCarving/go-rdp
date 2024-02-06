@@ -6,8 +6,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/protocol/t125/per"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/per"
 	"github.com/lunixbochs/struc"
 )
 

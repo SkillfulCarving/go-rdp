@@ -10,12 +10,12 @@ import (
 	"math/big"
 	"unicode/utf16"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/emission"
-	"github.com/SkillfulCarving/rdp/protocol/lic"
-	"github.com/SkillfulCarving/rdp/protocol/nla"
-	"github.com/SkillfulCarving/rdp/protocol/t125"
-	"github.com/SkillfulCarving/rdp/protocol/t125/gcc"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/emission"
+	"github.com/SkillfulCarving/go-rdp/protocol/lic"
+	"github.com/SkillfulCarving/go-rdp/protocol/nla"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/gcc"
 	"github.com/lunixbochs/struc"
 )
 

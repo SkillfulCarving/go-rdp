@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/SkillfulCarving/rdp/core"
+	"github.com/SkillfulCarving/go-rdp/core"
 )
 
 func ReadEnumerates(r io.Reader) (uint8, error) {

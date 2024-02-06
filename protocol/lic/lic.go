@@ -3,7 +3,7 @@ package lic
 import (
 	"io"
 
-	"github.com/SkillfulCarving/rdp/core"
+	"github.com/SkillfulCarving/go-rdp/core"
 )
 
 const (

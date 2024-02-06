@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/protocol/t125/gcc"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/protocol/t125/gcc"
 	"github.com/lunixbochs/struc"
 )
 

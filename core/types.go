@@ -1,6 +1,6 @@
 package core
 
-import "github.com/SkillfulCarving/rdp/emission"
+import "github.com/SkillfulCarving/go-rdp/emission"
 
 type Transport interface {
 	Read(b []byte) (n int, err error)

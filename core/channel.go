@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/SkillfulCarving/rdp/emission"
+	"github.com/SkillfulCarving/go-rdp/emission"
 )
 
 const (

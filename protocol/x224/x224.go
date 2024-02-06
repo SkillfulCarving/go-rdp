@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/SkillfulCarving/rdp/core"
-	"github.com/SkillfulCarving/rdp/emission"
-	"github.com/SkillfulCarving/rdp/protocol/tpkt"
+	"github.com/SkillfulCarving/go-rdp/core"
+	"github.com/SkillfulCarving/go-rdp/emission"
+	"github.com/SkillfulCarving/go-rdp/protocol/tpkt"
 	"github.com/lunixbochs/struc"
 )
 

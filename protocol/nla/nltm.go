@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SkillfulCarving/rdp/core"
+	"github.com/SkillfulCarving/go-rdp/core"
 	"github.com/lunixbochs/struc"
 	"golang.org/x/crypto/md4"
 )
