@@ -106,7 +106,7 @@ func WithScreenshot(picture Picture, timeout ...int) func(client *Client) {
 }
 
 func (c *Client) IsXRdp() bool {
-	conn, err := net.Dial("tcp", c.addr)
+	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
 	if err != nil {
 		return false
 	}
@@ -126,17 +126,13 @@ func (c *Client) GetBanner() (banner Banner) {
 	defer func() {
 		recover()
 	}()
-	dataFirst, err := hex.DecodeString(HexDataFirst)
-	dataSecond, err := hex.DecodeString(HexDataSecond)
-	//
-	if err != nil {
-		return
-	}
+	dataFirst, _ := hex.DecodeString(HexDataFirst)
+	dataSecond, _ := hex.DecodeString(HexDataSecond)
 
-	conn, err := net.Dial("tcp", c.addr)
+	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
 
 	if err != nil {
-		conn, err = net.Dial("tcp", c.addr)
+		conn, err = net.DialTimeout("tcp", c.addr, c.timeout)
 		if err != nil {
 			return
 		}
@@ -204,6 +200,9 @@ func (c *Client) GetBanner() (banner Banner) {
 }
 
 func (c *Client) Login() bool {
+	defer func() {
+		recover()
+	}()
 	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
 	if err != nil {
 		return false
@@ -235,7 +234,6 @@ func (c *Client) Login() bool {
 	if !success {
 		return false
 	}
-	fmt.Println("login success!")
 	if !c.screenshot {
 		return true
 	}
