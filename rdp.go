@@ -2,6 +2,7 @@ package rdp
 
 import (
 	"bytes"
+	"context"
 	"crypto/tls"
 	"encoding/binary"
 	"encoding/hex"
@@ -55,6 +56,7 @@ type Client struct {
 	domain         string
 	screenshot     bool
 	screenshotTime int
+	ctx            context.Context
 	Picture
 	Banner
 }
@@ -69,6 +71,7 @@ func NewClient(addr string, timeout time.Duration, options ...func(*Client)) *Cl
 	c := &Client{
 		addr:    addr,
 		timeout: timeout,
+		ctx:     context.Background(),
 	}
 	for _, o := range options {
 		o(c)
@@ -89,6 +92,12 @@ func WithDomain(domain string) func(client *Client) {
 	}
 }
 
+func WithContext(ctx context.Context) func(client *Client) {
+	return func(client *Client) {
+		client.ctx = ctx
+	}
+}
+
 func WithScreenshot(picture Picture, timeout ...int) func(client *Client) {
 	return func(client *Client) {
 		client.screenshot = true
@@ -106,7 +115,8 @@ func WithScreenshot(picture Picture, timeout ...int) func(client *Client) {
 }
 
 func (c *Client) IsXRdp() bool {
-	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
+	dialer := &net.Dialer{Timeout: c.timeout}
+	conn, err := dialer.DialContext(c.ctx, "tcp", c.addr)
 	if err != nil {
 		return false
 	}
@@ -129,10 +139,11 @@ func (c *Client) GetBanner() (banner Banner) {
 	dataFirst, _ := hex.DecodeString(HexDataFirst)
 	dataSecond, _ := hex.DecodeString(HexDataSecond)
 
-	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
+	dialer := &net.Dialer{Timeout: c.timeout}
+	conn, err := dialer.DialContext(c.ctx, "tcp", c.addr)
 
 	if err != nil {
-		conn, err = net.DialTimeout("tcp", c.addr, c.timeout)
+		conn, err = dialer.DialContext(c.ctx, "tcp", c.addr)
 		if err != nil {
 			return
 		}
@@ -203,7 +214,8 @@ func (c *Client) Login() bool {
 	defer func() {
 		recover()
 	}()
-	conn, err := net.DialTimeout("tcp", c.addr, c.timeout)
+	dialer := &net.Dialer{Timeout: c.timeout}
+	conn, err := dialer.DialContext(c.ctx, "tcp", c.addr)
 	if err != nil {
 		return false
 	}
