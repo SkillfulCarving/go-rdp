@@ -1,6 +1,6 @@
 module github.com/SkillfulCarving/go-rdp
 
-go 1.21.3
+go 1.16
 
 require (
 	github.com/huin/asn1ber v0.0.0-20120622192748-af09f62e6358
