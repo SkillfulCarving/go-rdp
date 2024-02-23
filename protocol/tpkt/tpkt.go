@@ -147,7 +147,6 @@ func (t *TPKT) recvChallenge(data []byte) error {
 		return fmt.Errorf("read %s", err)
 	}
 
-	t.Success <- true
 	return t.recvPubKeyInc(resp[:n])
 }
 
@@ -166,6 +165,7 @@ func (t *TPKT) recvPubKeyInc(data []byte) error {
 	if err != nil {
 		return err
 	}
+	t.Success <- true
 	return nil
 }
 
