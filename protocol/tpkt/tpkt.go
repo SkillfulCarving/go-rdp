@@ -123,7 +123,7 @@ func (t *TPKT) StartNLA() error {
 
 func (t *TPKT) recvChallenge(data []byte) error {
 	tsreq, err := nla.DecodeDERTRequest(data)
-	if err != nil {
+	if err != nil || len(tsreq.NegoTokens) == 0 {
 		t.Success <- false
 		return err
 	}
