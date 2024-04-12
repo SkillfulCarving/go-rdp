@@ -271,6 +271,10 @@ func (m *ChallengeMessage) getTargetInfo() []byte {
 	}
 	offset := m.BaseLen()
 	start := m.TargetInfoBufferOffset - offset
+	// 超过范围后
+	if start+uint32(m.TargetInfoLen) <= start {
+		return []byte{}
+	}
 	return m.Payload[start : start+uint32(m.TargetInfoLen)]
 }
 func (m *ChallengeMessage) getTargetName() []byte {
