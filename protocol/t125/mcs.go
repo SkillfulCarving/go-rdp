@@ -490,6 +490,11 @@ func (c *MCSClient) recvChannelJoinConfirm(s []byte) {
 		return
 	}
 	if confirm == 0 {
+		if c.serverNetworkData == nil {
+			c.Emit("error", errors.New("NODE_RDP_PROTOCOL_T125_MCS_INVALID_USER_ID"))
+			return
+		}
+
 		for i := 0; i < int(c.serverNetworkData.ChannelCount); i++ {
 			if channelId == c.serverNetworkData.ChannelIdArray[i] {
 				var t MCSChannelInfo

@@ -7,10 +7,10 @@ import (
 )
 
 func TestRdp(t *testing.T) {
-	c := NewClient("127.0.0.1:3389",
+	c := NewClient("10.189.62.191:3389",
 		time.Second*3,
 		WithScreenshot(Picture{}),
-		WithAuth("user", "pass"),
+		WithAuth("administrator", "132565"),
 	)
 	if !c.IsXRdp() {
 		fmt.Println(c.GetBanner())
