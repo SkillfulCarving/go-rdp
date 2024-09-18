@@ -7,7 +7,7 @@ import (
 )
 
 func TestRdp(t *testing.T) {
-	c := NewClient("10.189.62.191:3389",
+	c := NewClient("127.0.0.1:3389",
 		time.Second*3,
 		WithScreenshot(Picture{}),
 		WithAuth("administrator", "132565"),
